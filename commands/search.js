@@ -13,7 +13,7 @@ exports.run = async (client, msg, args, color) => {
       )
       .then(msg => msg.delete({ timeout: 10000 }));
   let nick =
-    msg.member.nickname !== undefined
+    msg.member.nickname
       ? `${msg.member.nickname}`
       : msg.author.username;
 
