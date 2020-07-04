@@ -23,20 +23,14 @@ Node       :: ${process.version}\`\`\``);
     if (!client.config.OWNERS.includes(msg.author.id)) return;
 
     let guildsCount = [];
-    let servers = client.guilds.cache
-      .array()
-      .slice()
-      .map(x => x)
-      .sort((a, b) =>
-        a.memberCount < b.memberCount
-          ? 1
-          : b.memberCount < a.memberCount
-          ? -1
-          : 0
-      );
-    for (var [i, x] of servers.entries()) {
-      guildsCount.push(`\`${i + 1}\`. ${x.name} = \`${x.memberCount}\``);
-    }
+    let servers = await client.shard.broadcastEval(
+      "this.guilds.cache.array().slice().map(x => x).sort((a, b) => a.memberCount < b.memberCount ? 1 : b.memberCount < a.memberCount ? -1 : 0)"
+    );
+    servers.forEach(e => {
+        for (var [i, x] of e.entries()) {
+          guildsCount.push(`\`${i + 1}\`. ${x.name} = \`${x.memberCount}\``);
+        }
+      });
 
     guildsCount = client.util.chunk(guildsCount, 15);
     let page = 1;
@@ -46,13 +40,9 @@ Node       :: ${process.version}\`\`\``);
       .setDescription(guildsCount[page - 1]);
     let m = await msg.channel.send(embed);
 
-    // clear all reactions
-    // client.setInterval(() => {
-    //     m.clearReactions();
-    // }, 120000);
-
     await m.react(`◀`);
     await m.react(`▶`);
+    
     const backwardsFilter = (reaction, user) =>
       reaction.emoji.name === `◀` && user.id === msg.author.id;
     const forwardsFilter = (reaction, user) =>
@@ -61,7 +51,6 @@ Node       :: ${process.version}\`\`\``);
     const forwards = m.createReactionCollector(forwardsFilter);
 
     backwards.on("collect", r => {
-      r.remove(msg.author.id);
       if (page === 1) return;
       page--;
       embed.setDescription(guildsCount[page - 1]);
@@ -70,7 +59,6 @@ Node       :: ${process.version}\`\`\``);
     });
 
     forwards.on("collect", r => {
-      r.remove(msg.author.id);
       if (page === guildsCount.length) return;
       page++;
       embed.setDescription(guildsCount[page - 1]);
