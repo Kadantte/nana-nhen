@@ -24,10 +24,11 @@ Node       :: ${process.version}\`\`\``);
 
     let guildsCount = [];
     let servers = await client.shard.broadcastEval(
-      "this.guilds.cache.array().slice().map(x => x).sort((a, b) => a.memberCount < b.memberCount ? 1 : b.memberCount < a.memberCount ? -1 : 0)"
+      "this.guilds.cache.array().slice().map(x => x)"
     );
     servers.forEach(e => {
-        for (var [i, x] of e.entries()) {
+        let server = e.sort((a, b) => a.memberCount < b.memberCount ? 1 : b.memberCount < a.memberCount ? -1 : 0);
+        for (var [i, x] of server.entries()) {
           guildsCount.push(`\`${i + 1}\`. ${x.name} = \`${x.memberCount}\``);
         }
       });
