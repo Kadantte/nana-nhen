@@ -4,7 +4,7 @@ exports.run = async (client, msg, args, color) => {
       .send(`NSFW channel please.`)
       .then(msg => msg.delete({ timeout: 5000 }));
   let nick =
-    msg.member.nickname !== null
+    msg.member.nickname !== undefined
       ? `${msg.member.nickname}`
       : msg.author.username;
 
