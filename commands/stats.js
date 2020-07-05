@@ -27,11 +27,20 @@ Node       :: ${process.version}\`\`\``);
       "this.guilds.cache.array().slice().map(x => x)"
     );
     servers.forEach(e => {
-        let server = e.sort((a, b) => a.memberCount < b.memberCount ? 1 : b.memberCount < a.memberCount ? -1 : 0);
+      e.forEach(x => {
+        let server = x.sort((a, b) =>
+          a.memberCount < b.memberCount
+            ? 1
+            : b.memberCount < a.memberCount
+            ? -1
+            : 0
+        );
+
         for (var [i, x] of server.entries()) {
           guildsCount.push(`\`${i + 1}\`. ${x.name} = \`${x.memberCount}\``);
         }
       });
+    });
 
     guildsCount = client.util.chunk(guildsCount, 15);
     let page = 1;
