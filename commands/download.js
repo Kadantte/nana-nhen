@@ -13,7 +13,7 @@ exports.run = async (client, msg, args, color) => {
       .send(`NSFW channel please.`)
       .then(msg => msg.delete({ timeout: 5000 }));
   const res = await api.g(args[0]);
-  let nhentURL = `https://hdl.rurafs.me/download/nhentai/${res.id}`;
+  let nhentURL = `https://mangadl.herokuapp.com/download/nhentai/${res.id}/zip`;
   const embed = new MessageEmbed()
     .setTitle(res.title.pretty)
     .setURL(nhentURL.trim())
@@ -25,7 +25,7 @@ exports.run = async (client, msg, args, color) => {
     .setColor(color)
     .setTimestamp()
     .setDescription(
-      `To start download, click the doujin title above.\n\nFeel free to join [my server](https://discord.gg/X3yeKgN) or partner server [HDL](https://discord.gg/EM2YpKH)`
+      `To start download, click the doujin title above.\n\nFeel free to join [my server](https://discord.gg/X3yeKgN)`
     );
   msg.channel.send(embed);
 };
