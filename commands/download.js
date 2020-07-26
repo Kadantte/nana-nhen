@@ -13,7 +13,7 @@ exports.run = async (client, msg, args, color) => {
       .send(`NSFW channel please.`)
       .then(msg => msg.delete({ timeout: 5000 }));
   const res = await api.g(args[0]);
-  let nhentURL = `https://mangadl.herokuapp.com/download/nhentai/${res.id}/zip`;
+  let nhentURL = `https://mangadl2.herokuapp.com/download/nhentai/${res.id}/zip`;
   const embed = new MessageEmbed()
     .setTitle(res.title.pretty)
     .setURL(nhentURL.trim())
