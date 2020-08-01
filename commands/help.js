@@ -17,6 +17,7 @@ exports.run = async (client, msg, args, color) => {
 - nh lang \`<english/japanese/chinese>\` -- Get random doujinshi by the language you provided. You can use alias language too.\nExample: \`<ch/en/jp>\`
 - nh download \`<Book ID>\` -- Download doujin in zip file
 - nh favorite \`[add/delete]\` \`<ID>\` (no args to see the list) -- Save your favorite doujin ID
+- nh parody \`<Parody> [Language]\` -- Get random doujinshi by parody you provided
 - nh tag \`<Tag> [Language]\` -- Get random doujinshi by tag you provided
 - nh search \`<Query> [Language]\` -- Search nHentai site`
       )

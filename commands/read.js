@@ -1,6 +1,6 @@
 exports.run = async (client, msg, args, color) => {
   let nick =
-    msg.member.nickname
+    msg.member.nickname !== null
       ? `${msg.member.nickname}`
       : msg.author.username;
   let id = args[0];
