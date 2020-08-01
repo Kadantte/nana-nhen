@@ -19,12 +19,14 @@ exports.run = async (client, msg, args, color) => {
 - nh favorite \`[add/delete]\` \`<ID>\` (no args to see the list) -- Save your favorite doujin ID
 - nh parody \`<Parody> [Language]\` -- Get random doujinshi by parody you provided
 - nh tag \`<Tag> [Language]\` -- Get random doujinshi by tag you provided
-- nh search \`<Query> [Language]\` -- Search nHentai site`
+- nh search \`<Query> [Language]\` -- Search nHentai site
+- nh donate -- Showing donate page`
       )
       .setFooter(`Nana V${client.version} || <> = required, [] = optional`)
       .addField(
         "Changelogs",
         `- Adding new **parody** command, check \`nh help parody\` for more informations
+- Bring back \`nh donate\` command
 - Fixing some bugs...`
       )
       .setTimestamp();
