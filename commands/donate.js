@@ -7,7 +7,7 @@ exports.run = async (client, msg, args, color) => {
   let embed = new Discord.MessageEmbed()
     .setColor(color)
     .setDescription(
-      `**${msg.member.user.tag}** Welcome to donation page, you can support my creator on [Arxist](https://arxist.com/tip/masami) or [Patreon](https://patreon.com/masami) or you can send a message to ${app.owner.tag}. Don't forget to leave your username or id in the message or you can join [my support server](https://discord.gg/X3yeKgN) to get Patrons Role.\n\n**Thank You**`
+      `**${msg.member.user.tag}** Welcome to donation page, you can support my creator on [Arxist](https://arxist.com/tip/masami) or [Patreon](https://patreon.com/masami) or you can send a message to ${app.owner.tag}.\n\n**Thank You**`
     )
     .setFooter(`© Nana | ${pkg.version}`);
   msg.channel.send(embed);
