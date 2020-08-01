@@ -24,11 +24,7 @@ exports.run = async (client, msg, args, color) => {
       .setFooter(`Nana V${client.version} || <> = required, [] = optional`)
       .addField(
         "Changelogs",
-        `- Rewrite tag command to search tag only. Max tag is 1 (one)
-Check [nHentai Tags](https://nhentai.net/tags) for tags list
-Example: \`nh tag <Tag> [Language]\`
-- Add new search command. The command same with the old tag command
-Example: \`nh search <Query> [Language]\` or \`nh search "<Query>" [Language]\``
+        `- Adding new **parody** command, check \`nh help parody\` for more informations`
       )
       .setTimestamp();
     msg.channel.send(embed);
