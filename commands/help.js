@@ -8,7 +8,7 @@ exports.run = async (client, msg, args, color) => {
       .setColor(color)
       .setTitle("Nana helps")
       .setDescription(
-        `Nana help you to directly read doujinshi on nHentai from your Discord channel, you can invite me with [This Link](https://nana.glitch.me/invite) or [Join my Server](https://nana.glitch.me/server) (my Owner need suggestion for next update!)`
+        `Nana help you to directly read doujinshi on nHentai from your Discord channel, you can invite me with [This Link](https://nana.masami.xyz/invite) or [Join my Server](https://nana.masami.xyz/server) (my Owner need suggestion for next update!)`
       )
       .addField(
         "Command list",
