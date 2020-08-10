@@ -17,7 +17,7 @@ Users      :: ${users.toLocaleString()}
 Servers    :: ${servers.toLocaleString()}
 Channels   :: ${channels.toLocaleString()}
 Bot Vers.  :: ${botVersion}
-Discord.js :: v${version}
+D.js-light :: v${version}
 Node       :: ${process.version}\`\`\``);
   //   } else if (args[0] == "server") {
   //     if (!client.config.OWNERS.includes(msg.author.id)) return;
