@@ -7,7 +7,7 @@ const client = new Nana({
   cacheGuilds: true,
   cacheChannels: true,
   fetchAllMembers: true,
-  disableEvents: ["GUILD_SYNC", "PRESENCE_UPDATE", "TYPING_START"]
+  messageCacheMaxSize: 0
 });
 
 // events
