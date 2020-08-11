@@ -25,9 +25,7 @@ exports.run = async (client, msg, args, color) => {
       .setFooter(`Nana V${client.version} || <> = required, [] = optional`)
       .addField(
         "Changelogs",
-        `- Adding new **parody** command, check \`nh help parody\` for more informations
-- Bring back \`nh donate\` command
-- Fixing some bugs...`
+        `- Added **BANNED** tag`
       )
       .setTimestamp();
     msg.channel.send(embed);
