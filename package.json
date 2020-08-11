@@ -1,6 +1,6 @@
 {
   "name": "nana-bot",
-  "version": "2.9.1",
+  "version": "2.10.0",
   "description": "nHentai Discord bot",
   "main": "shard.js",
   "scripts": {
