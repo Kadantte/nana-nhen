@@ -28,18 +28,4 @@ module.exports = async client => {
 
     client.user.setActivity(status[rand], { type: "PLAYING" });
   }, 6e4);
-
-  client.setInterval(() => {
-    axios.post(
-      `https://discord.bots.gg/api/v1/bots/${client.user.id}/stats`,
-      {
-        guildCount: guilds
-      },
-      {
-        headers: {
-          Authorization: process.env.DBGG_TOKEN
-        }
-      }
-    );
-  }, 18e5);
 };
