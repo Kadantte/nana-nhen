@@ -14,7 +14,7 @@ module.exports = async client => {
 
   client.setInterval(async () => {
     let userFormat = client.util.nFormatter(users);
-    let guildFormat = client.util.nFormatter(guilds));
+    let guildFormat = client.util.nFormatter(guilds);
 
     let status = [
       `with ${userFormat} users`,
