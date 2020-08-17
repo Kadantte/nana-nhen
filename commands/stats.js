@@ -4,9 +4,9 @@ const pkg = require("../package.json");
 exports.run = async (client, msg, args, color) => {
   const uptime = client.util.parseDur(client.uptime);
   const botVersion = pkg.version;
-  const usersTotal = await client.shard.fetchClientValues("guilds.cache.size");
+  const usersTotal = await client.shard.fetchClientValues("users.cache.size");
   const users = await client.shard.fetchClientValues("users.cache.size");
-  const channelsTotal = await client.shard.fetchClientValues("guilds.cache.size");
+  const channelsTotal = await client.shard.fetchClientValues("channels.cache.size");
   const channels = await client.shard.fetchClientValues("channels.cache.size");
   const serversTotal = await client.util.getShardTotal("guilds.cache.size");
   const servers = await client.shard.fetchClientValues("guilds.cache.size");
