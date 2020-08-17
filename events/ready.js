@@ -14,12 +14,12 @@ module.exports = async client => {
 
   client.setInterval(async () => {
     let userFormat = client.util.nFormatter(users);
-    let guildFormat = client.util.nFormatter(await client.util.getShardTotal("guilds.cache.size"));
+    let guildFormat = client.util.nFormatter(guilds));
 
     let status = [
       `with ${userFormat} users`,
       `Bot v${version}`,
-      `in ${guildFormat} server 🎉`,
+      `in ${guildFormat} server 🎉 | ${parseInt(client.shard.ids) + 1} of ${client.shard.count}`,
       `Help me to buy a VPS, please | nh donate`,
       `Ara ara ara`,
       `now with downloader | nh dl 177013`
