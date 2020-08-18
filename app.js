@@ -1,7 +1,6 @@
 const { Collection } = require("discord.js");
 const { readdirSync } = require("fs");
 const Nana = require("./lib/NanaClient");
-//require("./server");
 
 const client = new Nana({
   cacheGuilds: true,
