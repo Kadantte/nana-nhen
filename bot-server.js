@@ -17,6 +17,6 @@ app.get("/server", (req, res) => {
   res.redirect("https://discord.gg/X3yeKgN");
 });
 // listen for requests :)
-var listener = app.listen(14045, function() {
+var listener = app.listen(4501, function() {
   console.log("Your app is listening on port " + listener.address().port);
 });
