@@ -2,6 +2,8 @@ const { MessageEmbed } = require("discord.js");
 
 exports.run = async (client, msg, args, color) => {
   const app = await client.fetchApplication();
+  let chan = client.channels.cache.get("602929522207096862");
+  let lastMessage = await chan.messages.fetch(chan.lastMessageID);
 
   if (!args[0]) {
     const embed = new MessageEmbed()
@@ -25,7 +27,7 @@ exports.run = async (client, msg, args, color) => {
       .setFooter(`Nana V${client.version} || <> = required, [] = optional`)
       .addField(
         "Changelogs",
-        `- **BANNED** some tag, so you can read it again from me again`
+        lastMessage.content
       )
       .setTimestamp();
     msg.channel.send(embed);
