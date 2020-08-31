@@ -2,8 +2,8 @@ const { MessageEmbed } = require("discord.js");
 
 exports.run = async (client, msg, args, color) => {
   const app = await client.fetchApplication();
-  let chan = client.channels.cache.get("602929522207096862");
-  let lastMessage = await chan.messages.fetch(chan.lastMessageID);
+  //let chan = client.channels.cache.get("602929522207096862");
+  //let lastMessage = await chan.messages.fetch(chan.lastMessageID);
 
   if (!args[0]) {
     const embed = new MessageEmbed()
@@ -25,10 +25,10 @@ exports.run = async (client, msg, args, color) => {
 - nh donate -- Showing donate page`
       )
       .setFooter(`Nana V${client.version} || <> = required, [] = optional`)
-      .addField(
-        "Changelogs",
-        lastMessage.content
-      )
+      //.addField(
+        //"Changelogs",
+        //lastMessage.content
+      //)
       .setTimestamp();
     msg.channel.send(embed);
   } else {

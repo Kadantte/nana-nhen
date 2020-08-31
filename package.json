@@ -4,7 +4,7 @@
   "description": "nHentai Discord bot",
   "main": "shard.js",
   "scripts": {
-    "start": "forever start shard.js && forever start bot-server.js",
+    "start": "pm2 start shard.js && pm2 start bot-server.js",
     "stop": "killall node"
   },
   "dependencies": {
