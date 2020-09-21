@@ -2,20 +2,18 @@ const nHentaiAPI = require("nana-api");
 let api = new nHentaiAPI();
 
 exports.run = async (client, msg, args, color) => {
-  if (!msg.channel.nsfw)
+  if (!msg.channel.nsfw || msg.channel.nsfw == false)
     return msg.channel
       .send(`NSFW channel please.`)
       .then(msg => msg.delete({ timeout: 5000 }));
+  client.channels.fetch(msg.channel.id);
+
   if (!args[0])
     return msg.channel
       .send(
         `the command you are using is incorrect\nExample: \`nh search <Query> [language]\``
       )
       .then(msg => msg.delete({ timeout: 10000 }));
-  let nick =
-    msg.member.nickname !== null
-      ? `${msg.member.nickname}`
-      : msg.author.username;
 
   let input = args.join(" ").match(/\w+|('|")([^"]|[^'])+('|")/g);
   let search = input[0].replace(/["']/g, "").toLowerCase();

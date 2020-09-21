@@ -4,9 +4,9 @@ const axios = require("axios");
 module.exports = async client => {
   const version = pkg.version;
 
-  const users = await client.util.getShardTotal("users.cache.size");
-  const channels = await client.util.getShardTotal("channels.cache.size");
-  const guilds = await client.util.getShardTotal("guilds.cache.size");
+  const users = client.users.cache.size
+  const channels = client.channels.cache.size
+  const guilds = client.guilds.cache.size
 
   console.log(
     `${client.user.username} Preparing to playing with ${users} users, in ${channels} channels of ${guilds} guilds...`

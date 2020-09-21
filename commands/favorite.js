@@ -1,13 +1,11 @@
 exports.run = async (client, msg, args, color) => {
-  if (!msg.channel.nsfw)
+  if (!msg.channel.nsfw || msg.channel.nsfw == false)
     return msg.channel
       .send(`NSFW channel please.`)
       .then(msg => msg.delete({ timeout: 5000 }));
-  let nick =
-    msg.member.nickname !== null
-      ? `${msg.member.nickname}`
-      : msg.author.username;
+  client.channels.fetch(msg.channel.id);
 
+  let nick = msg.member.nickname || msg.author.username;
   if (args[0] == "add") {
     let bookId = args[1];
     let res = await client.embeds.getById(bookId);

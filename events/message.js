@@ -11,11 +11,7 @@ module.exports = async (client, msg) => {
     .trim()
     .split(/ +/g);
   let command = args.shift().toLowerCase();
-  let nick =
-    msg.member.nickname !== null
-      ? `${msg.member.nickname}`
-      : msg.author.username;
-
+  
   if (
     msg.content.toLowerCase() === `<@${client.user.id}>` ||
     msg.content.toLowerCase() === `<@!${client.user.id}>`
@@ -26,6 +22,7 @@ module.exports = async (client, msg) => {
   if (/(https:\/\/)?(nhentai)\.(net)\/g\/[\d]+\/?/g.test(msg))
     return require("../lib/NanaLink")(client, msg);
   if (!msg.content.toLowerCase().startsWith(prefix)) return undefined;
+  client.channels.fetch(msg.channel.id);
 
   let cmd =
     client.commands.get(command) ||
