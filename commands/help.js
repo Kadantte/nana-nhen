@@ -3,13 +3,8 @@ const { MessageEmbed } = require("discord.js");
 exports.run = async (client, msg, args, color) => {
   try {
     const app = await client.fetchApplication();
-    let lastMsgArr = await client.shard.broadcastEval(
-      `let chan = this.channels.cache.get("602929522207096862");
-      if (chan) chan.messages.fetch(chan.lastMessageID);`
-    );
-    let lastMsg = lastMsgArr.filter(function (el) {
-      return el != null;
-    });
+    let chan = await client.channels.fetch("602929522207096862");
+    let lastMsg = await chan.messages.fetch(chan.lastMessageID);
 
     if (!args[0]) {
       const embed = new MessageEmbed()
@@ -31,9 +26,9 @@ exports.run = async (client, msg, args, color) => {
 - nh donate -- Showing donate page`
         )
         .setFooter(`Nana V${client.version} || <> = required, [] = optional`)
-        .addField("Changelogs", lastMsg.pop().content)
+        .addField("Changelogs", lastMsg.content)
         .setTimestamp();
-      msg.channel.send(embed).catch(console.log);
+      msg.channel.send({ embed: embed });
     } else {
       let cmd = args[0];
       if (
@@ -75,7 +70,7 @@ exports.run = async (client, msg, args, color) => {
                 )}`
               : usages
           );
-        return msg.channel.send(embed);
+        return msg.channel.send({ embed: embed });
       }
       if (
         !client.commands.has(cmd) ||

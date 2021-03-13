@@ -4,20 +4,16 @@ const axios = require("axios");
 module.exports = async client => {
   const version = pkg.version;
 
-  const users = client.users.cache.size
-  const channels = client.channels.cache.size
   const guilds = client.guilds.cache.size
 
   console.log(
-    `${client.user.username} Preparing to playing with ${users} users, in ${channels} channels of ${guilds} guilds...`
+    `${client.user.username} Preparing to playing with ${guilds} guilds...`
   );
 
   client.setInterval(async () => {
-    let userFormat = client.util.nFormatter(users);
     let guildFormat = client.util.nFormatter(guilds);
 
     let status = [
-      `with ${userFormat} users`,
       `Bot v${version}`,
       `in ${guildFormat} server 🎉 | ${parseInt(client.shard.ids) + 1} of ${client.shard.count}`,
       `Help me to buy a VPS, please | nh donate`,

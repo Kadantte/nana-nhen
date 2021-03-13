@@ -27,7 +27,7 @@ exports.run = async (client, msg, args, color) => {
     } else {
       embed.addField("Output", "```js\n" + output + "```");
     }
-    msg.channel.send(embed);
+    msg.channel.send({ embed: embed });
   } catch (e) {
     let error = clean(e);
     if (error.length > 1024) {
@@ -38,7 +38,7 @@ exports.run = async (client, msg, args, color) => {
     } else {
       embed.addField("Error", "```js\n" + error + "```");
     }
-    msg.channel.send(embed);
+    msg.channel.send({ embed: embed });
   }
 };
 

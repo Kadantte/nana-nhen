@@ -5,7 +5,6 @@ const Nana = require("./lib/NanaClient");
 const client = new Nana({
   cacheGuilds: true,
   cacheChannels: true,
-  fetchAllMembers: true,
   messageCacheMaxSize: 0
 });
 
