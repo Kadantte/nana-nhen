@@ -59,7 +59,7 @@ exports.run = async (client, msg, args, color) => {
     let query = id.results.find(x => x.language == lang.toLowerCase()).id;
     await client.embeds.getInfoEmbed(query, msg);
   } catch (err) {
-    console.err(err);
+    console.log(err);
   }
 };
 

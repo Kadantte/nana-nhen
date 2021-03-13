@@ -11,7 +11,7 @@ exports.run = async (client, message, args, color) => {
       .setColor(color)
       .addField("Latency", `${diff}ms`, true)
       .addField("API", `${API}ms`, true);
-    message.channel.send(embed);
+    message.channel.send({ embed: embed });
   });
 };
 

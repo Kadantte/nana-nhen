@@ -4,10 +4,6 @@ const pkg = require("../package.json");
 exports.run = async (client, msg, args, color) => {
   const uptime = client.util.parseDur(client.uptime);
   const botVersion = pkg.version;
-  const usersTotal = await client.util.getShardTotal("users.cache.size");
-  const users = await client.shard.fetchClientValues("users.cache.size");
-  const channelsTotal = await client.util.getShardTotal("channels.cache.size");
-  const channels = await client.shard.fetchClientValues("channels.cache.size");
   const serversTotal = await client.util.getShardTotal("guilds.cache.size");
   const servers = await client.shard.fetchClientValues("guilds.cache.size");
 
@@ -15,8 +11,6 @@ exports.run = async (client, msg, args, color) => {
 Mem. Usage :: ${Math.floor(process.memoryUsage().heapUsed / 1048576)} MB
 Uptime     :: ${uptime}
 WS Ping    :: ${client.ws.ping}ms
-Users      :: ${users[client.shard.ids].toLocaleString()}/${usersTotal.toLocaleString()}
-Channels   :: ${channels[client.shard.ids].toLocaleString()}/${channelsTotal.toLocaleString()}
 Servers    :: ${servers[client.shard.ids].toLocaleString()}/${serversTotal.toLocaleString()}
 Shards     :: ${parseInt(client.shard.ids) + 1} of ${client.shard.count}
 Bot Vers.  :: ${botVersion}

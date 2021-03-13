@@ -10,7 +10,7 @@ exports.run = async (client, msg, args, color) => {
   let res = await client.embeds.getById(args[0]);
   let type = args[1];
   let embed = await client.embeds.download(res, type);
-  msg.channel.send(embed);
+  msg.channel.send({ embed: embed });
 };
 
 exports.conf = {

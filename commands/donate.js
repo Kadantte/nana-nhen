@@ -10,7 +10,7 @@ exports.run = async (client, msg, args, color) => {
       `**${msg.member.user.tag}** Welcome to donation page, you can support my creator on [Arxist](https://arxist.com/tip/masami) or [Patreon](https://patreon.com/masami) or you can send a message to ${app.owner.tag}.\n\n**Thank You**`
     )
     .setFooter(`© Nana | ${pkg.version}`);
-  msg.channel.send(embed);
+  msg.channel.send({ embed: embed });
 };
 
 exports.conf = {
