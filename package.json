@@ -4,25 +4,25 @@
   "description": "nHentai Discord bot",
   "main": "shard.js",
   "scripts": {
-    "start": "pm2 start shard.js && pm2 start bot-server.js",
+    "start": "node shard.js && node bot-server.js",
     "stop": "killall node"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "bufferutil": "^4.0.2",
-    "discord.js": "^12.5.1",
-    "discord.js-light": "^3.4.2",
-    "dotenv": "^8.2.0",
+    "axios": "^0.21.1",
+    "bufferutil": "^4.0.3",
+    "discord.js": "^12.5.3",
+    "discord.js-light": "^3.5.11",
+    "dotenv": "^10.0.0",
     "erlpack": "github:discord/erlpack",
     "express": "^4.17.1",
-    "nana-api": "^1.1.2",
-    "node-gyp": "^7.1.2",
-    "sqlite3": "^5.0.0",
-    "utf-8-validate": "^5.0.3",
+    "nana-api": "^1.1.4",
+    "node-gyp": "^8.1.0",
+    "sqlite3": "^5.0.2",
+    "utf-8-validate": "^5.0.5",
     "zlib-sync": "^0.1.7"
   },
   "engines": {
-    "node": "14.x"
+    "node": "12.x"
   },
   "author": "Rin",
   "license": "MIT",
