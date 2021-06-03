@@ -24,7 +24,7 @@ exports.run = async (client, msg, args, color) => {
 - nh tag \`<Tag> [Language]\` -- Get random doujinshi by tag you provided
 - nh search \`<Query> [Language]\` -- Search nHentai site
 - nh donate -- Showing donate page`
-        )
+        ) //
         .setFooter(`Nana V${client.version} || <> = required, [] = optional`)
         .addField("Changelogs", lastMsg.content)
         .setTimestamp();
